@@ -1,6 +1,5 @@
 {
   "name": "task-tracker",
-  "homepage": "https://task-tracker-ten-omega.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
