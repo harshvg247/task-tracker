@@ -9,7 +9,7 @@ function App() {
 
   // local storage
   useEffect(() => {
-    const newTasks = [];
+    let newTasks = [];
     if(JSON.parse(localStorage.getItem('list'))){
       newTasks = JSON.parse(localStorage.getItem('list'))
     }
