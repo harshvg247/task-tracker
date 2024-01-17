@@ -9,20 +9,26 @@ function App() {
 
   // local storage
   useEffect(() => {
-    const newTasks = JSON.parse(localStorage.getItem('list')) || [];
+    const newTasks = [];
+    if(JSON.parse(localStorage.getItem('list'))){
+      newTasks = JSON.parse(localStorage.getItem('list'))
+    }
     setTasks(newTasks);
   }, []);
   useEffect(() => {
     localStorage.setItem('list', JSON.stringify(tasks));
   }, [tasks]);
 
-  const filteredTask = tasks.filter((task)=>{
-    if(statusFilter=="all"){
-      return true;
-    }else{
-      return task.status===statusFilter;
-    }
-  })
+  let filteredTask = [];
+  if(tasks){
+    filteredTask = tasks.filter((task)=>{
+      if(statusFilter=="all"){
+        return true;
+      }else{
+        return task.status===statusFilter;
+      }
+    })  
+  }
 
   function updateStatus(_id) {
     let newTasks = [];
